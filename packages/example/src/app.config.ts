@@ -260,6 +260,9 @@ export const server = config({
     my_room: defineRoom(MyRoom).
       filterBy(["progress"]).
       sortBy({ clients: -1 }),
+    my_room_2: defineRoom(MyRoom).
+      filterBy(["progress"]).
+      sortBy({ clients: -1 }),
   },
 
   routes: createRouter({

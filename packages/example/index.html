@@ -101,15 +101,31 @@
       <h1>Colyseus + Vite</h1>
       <p>Minimal example running the Colyseus server through the Vite plugin.</p>
       <div>
-        <button id="connect" type="button">Join my_room</button>
+        <button id="connect" data-testid="connect" type="button">Join my_room</button>
         <span id="status"><span class="dot"></span>Idle</span>
+      </div>
+      <div style="margin-top: 12px; display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <label style="display: inline-flex; gap: 6px; align-items: center; font-size: 14px; color: #d1d5db;">
+          <input id="spectator-mode" data-testid="spectator-mode" type="checkbox" />
+          <span>只看 / Spectator（不占点）</span>
+        </label>
+        <label style="display: inline-flex; gap: 4px; align-items: center; font-size: 13px; color: #9ca3af;">
+          x <input id="join-x" data-testid="join-x" type="number" min="0" max="800" placeholder="随机" style="width: 76px;" />
+        </label>
+        <label style="display: inline-flex; gap: 4px; align-items: center; font-size: 13px; color: #9ca3af;">
+          y <input id="join-y" data-testid="join-y" type="number" min="0" max="600" placeholder="随机" style="width: 76px;" />
+        </label>
+        <button id="switch-role" data-testid="switch-role" type="button" hidden>旁观 / Spectate</button>
       </div>
       <div style="margin-top: 12px; display: flex; gap: 8px;">
         <button id="btn-hello" type="button">GET /hello</button>
         <button id="btn-time" type="button">GET /time</button>
         <button id="btn-express" type="button">GET /express-hello</button>
       </div>
-      <canvas id="game" width="800" height="600"></canvas>
+      <canvas id="game" data-testid="game-canvas" width="800" height="600"></canvas>
+      <div id="player-count" data-testid="player-count" style="margin-top: 8px; font-size: 13px; color: #9ca3af;">
+        Points on canvas: 0
+      </div>
       <pre id="log">Ready.</pre>
     </main>
     <script type="module" src="/src/client.ts"></script>
